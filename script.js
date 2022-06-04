@@ -19,6 +19,7 @@ const setToDb = db =>{
 const removeFromDB = item => {
     const db = getDb();
     delete db[item];
+    setToDb(db);
 }
 
 const getDb = () => {
