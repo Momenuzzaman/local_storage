@@ -9,7 +9,12 @@ const addToDB = item => {
         db[item] = 1;  
     }
     
-    console.log(db);
+    setToDb(db);
+}
+
+const setToDb = db =>{
+    const dbJSON = JSON.stringify(db);
+    localStorage.setItem('Name',dbJSON);
 }
 const removeFromDB = item => {
     const db = getDb();
@@ -17,5 +22,8 @@ const removeFromDB = item => {
 }
 
 const getDb = () => {
-    return db;
+    let saveDb = localStorage.getItem('Name');
+    saveDb = JSON.parse(saveDb);
+    return saveDb;
+    console.log(saveDb)
 }
