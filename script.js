@@ -1,5 +1,3 @@
-const db = {};
-
 const addToDB = item => {
     const db = getDb();
     if(item in db){
@@ -24,7 +22,13 @@ const removeFromDB = item => {
 
 const getDb = () => {
     let saveDb = localStorage.getItem('Name');
-    saveDb = JSON.parse(saveDb);
+    if(saveDb){
+        saveDb = JSON.parse(saveDb);
+    }
+    else {
+        saveDb = {};
+    }
+   
     return saveDb;
     console.log(saveDb)
 }
